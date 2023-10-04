@@ -1,0 +1,25 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- script: cd ReflectionLoadTest/
+  displayName: 'Using the proper Project Path'
+
+- script: dotnet build
+  displayName: 'Build the project'
+
+- script: dotnet run
+  displayName: 'Run the program'
+  continueOnError: false
+
+- script: dotnet publish
+  displayName: 'Release the program'
+  continueOnError: false
