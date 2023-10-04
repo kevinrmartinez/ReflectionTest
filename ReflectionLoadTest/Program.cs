@@ -30,7 +30,7 @@ Type[] methodTypes1 = new Type[]
 Type[] methodTypes2 = new Type[]
     { typeof(string) };
 MethodInfo Pack1 = ReflectionPackTestType.GetMethod("Pack1", methodTypes2);
-Pack1.Invoke(instancia, new object[] { "bitch" });
+Pack1.Invoke(instancia, new object[] { "perro" });
 if (!string.IsNullOrEmpty(argument))
 { Pack1.Invoke(instancia, new object[] { argument }); }
 
@@ -38,5 +38,5 @@ Type[] methodTypes3 = new Type[]
     { typeof(IList<Object>) };
 
 MethodInfo Pack2 = ReflectionPackTestType.GetMethod("Pack1", methodTypes3);
-Pack2.Invoke(instancia, new object[] { new List<Object> { "bitch" } });
-//Console.Beep();
+Pack2.Invoke(instancia, new object[] { new List<Object> { "gato" } });
+Console.Beep();
