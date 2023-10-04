@@ -3,9 +3,10 @@ using System.Reflection;
 
 Console.WriteLine("Hello, World!");
 
-string dllPath = "ReflectionPackTest.dll";
+string dllPath = "ReflectionPackTest";
 
 Assembly assembly = Assembly.LoadFrom(dllPath);
+Console.WriteLine(assembly.FullName);
 Type ReflectionPackTestType = assembly.GetType("ReflectionPackTest.Pack");
 
 object instancia = Activator.CreateInstance(ReflectionPackTestType);
