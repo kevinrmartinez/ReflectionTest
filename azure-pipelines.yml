@@ -10,16 +10,19 @@ pool:
   vmImage: windows-latest
 
 steps:
-- script: cd ReflectionLoadTest/
-  displayName: 'Using the proper Project Path'
-
-- script: dotnet build
+- script: |
+    cd ReflectionLoadTest
+    dotnet build
   displayName: 'Build the project'
 
-- script: dotnet run
+- script: |
+    cd ReflectionLoadTest
+    dotnet run
   displayName: 'Run the program'
   continueOnError: false
 
-- script: dotnet publish
+- script: |
+    cd ReflectionLoadTest
+    dotnet publish
   displayName: 'Release the program'
   continueOnError: false
