@@ -3,13 +3,13 @@ using System.Reflection;
 
 Console.WriteLine("Hello, World!");
 
-string dllPath = @"C:\Users\force\source\C#\ReflectionTest\ReflectionPackTest\bin\Debug\net7.0\ReflectionPackTest.dll";
+string dllPath = "ReflectionPackTest.dll";
 
 Assembly assembly = Assembly.LoadFrom(dllPath);
-Type type = assembly.GetType("ReflectionPackTest.Pack");
+Type ReflectionPackTestType = assembly.GetType("ReflectionPackTest.Pack");
 
-object instancia = Activator.CreateInstance(type);
-MethodInfo[] Pack = type.GetMethods();
+object instancia = Activator.CreateInstance(ReflectionPackTestType);
+MethodInfo[] Pack = ReflectionPackTestType.GetMethods();
 
 for (int i = 0; i < Pack.Length; i++)
 {
@@ -20,10 +20,14 @@ Console.WriteLine();
 
 Type[] methodTypes1 = new Type[]
     { };
+
 Type[] methodTypes2 = new Type[]
     { typeof(string) };
+MethodInfo Pack1 = ReflectionPackTestType.GetMethod("Pack1", methodTypes2);
+Pack1.Invoke(instancia, new object[] { "bitch" });
 Type[] methodTypes3 = new Type[]
     { typeof(IList<Object>) };
-MethodInfo Pack1 = type.GetMethod("Pack1", methodTypes3);
-Pack1.Invoke(instancia, new object[] { new List<Object> { "bitch" } });
-Console.Beep();
+
+MethodInfo Pack2 = ReflectionPackTestType.GetMethod("Pack1", methodTypes3);
+Pack2.Invoke(instancia, new object[] { new List<Object> { "bitch" } });
+//Console.Beep();
